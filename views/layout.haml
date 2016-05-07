@@ -13,12 +13,15 @@
             %li 
               %a{href: '/'} Blog
             %li 
-              %a{href: '#'} Events & Speaking
+              %a{href: '/events'} Events & Speaking
             %li 
-              %a{href: '#'} Work
+              %a{href: '/slides'} Slides
             %li 
-              %a{href: '#'} Contact Me
-      
-    =yield
+              %a{href: '/work'} Work
+            %li 
+              %a{href: '/contact'} Contact Me
+    .row
+      .small-10.small-offset-1.columns
+        =yield
     %script{src: 'https://code.jquery.com/jquery-2.2.3.min.js', integrity: 'sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=', crossorigin: 'anonymous'}
     %script{src: 'https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.1/foundation.min.js'}
