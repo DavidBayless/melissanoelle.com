@@ -1,1 +1,10 @@
-%h1 Blerg
+%h1 Blog
+
+- posts = []
+- posts.push({ title: 'Getting Started with Git', url: '/starting-with-git' })
+
+.posts
+  - posts.each do |post|
+    .post
+      %a{ href: post[:url] }
+        %h3= post[:title]
