@@ -1,1 +1,10 @@
 %h1 Slides
+
+- slides = []
+- slides.push({ title: 'Diversity in Coding', url: '/slides/diversity-in-coding' })
+
+.slides
+  - slides.each do |slide|
+    .slide
+      %a{ href: slide[:url] }
+        %h3= slide[:title]

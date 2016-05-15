@@ -16,6 +16,10 @@ get '/events', provides: :html do
   haml :events_speaking
 end
 
+get '/slides/diversity-in-coding', provides: :html do
+  haml :'slides/diversity_in_coding', layout: :slides_layout
+end
+
 get '/slides', provides: :html do
   haml :slides
 end

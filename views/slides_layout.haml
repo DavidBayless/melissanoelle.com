@@ -1,0 +1,10 @@
+!!!
+%html
+  %head
+    %link{rel: 'stylesheet', href: '/stylesheets/reveal.css'}
+  %body
+    .reveal
+      .slides
+        =yield
+    %script{src: '/javascripts/reveal.js'}
+    %script Reveal.initialize();
