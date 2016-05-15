@@ -20,6 +20,10 @@ get '/slides/diversity-in-coding', provides: :html do
   haml :'slides/diversity_in_coding', layout: :slides_layout
 end
 
+get '/slides/intermediate-javascript-having-fun-in-the-browser', provides: :html do
+  haml :'slides/intermediate_javascript_fun_browser', layout: :slides_layout
+end
+
 get '/slides', provides: :html do
   haml :slides
 end
