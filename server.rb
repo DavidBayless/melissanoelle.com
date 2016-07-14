@@ -1,10 +1,11 @@
-require 'sinatra'
+require 'sinatra/base'
 require 'sass'
 require 'sass/plugin/rack'
 require 'haml'
 require 'date'
 require 'redcarpet'
 
+class Website < Sinatra::Base
 Sass::Plugin.options[:style] = :compressed
 use Sass::Plugin::Rack
 
@@ -44,4 +45,5 @@ end
 
 get '/starting-with-git', provides: :html do
   haml :'posts/git_intro'
+end
 end

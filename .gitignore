@@ -1,1 +1,4 @@
 .sass-cache/
+shared/log/*
+shared/pids/*
+shared/sockets/*
