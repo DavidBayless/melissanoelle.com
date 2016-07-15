@@ -2,17 +2,23 @@
 
 .content
   :markdown
-    Git is version controlling software. It's pretty cool. It's the driving force behind [github](https://github.com), and is pretty common if you're working with open source. There's also subversion (SVN), and concurrent versions system (CVS) that work differently than git. I don't really use them, but I think it's good to at least be aware of them. I've actually only bumped into SVN a small handful of times professionally and CVS only once (it's a little dated). I like to use git via the command line, so I am only going to provide examples for your command line.
+    Git is _version controlling software_. That means that we can keep track of every "version" our files have gone through, meaning that we don't need to lose old work. It's the driving force behind [github.com](https://github.com), and is pretty common if you're working with open source. There's also [Subversion](https://subversion.apache.org/) (SVN), and [Concurrent Versions System](http://www.nongnu.org/cvs/) (CVS) that work differently than Git. I don't really use them, but I think it's good to at least be aware of them. I've only bumped into SVN a small handful of times professionally and CVS only once (it's a little dated). 
+    
+    I like to use Git via the command line, so I am only going to provide examples for your command line. Some people prefer to use a GUI, such as [Github Desktop](https://desktop.github.com/). I prefer the command line because I love keyboard shortcuts and also I can still use my Git skills on a headless server (ie: one that you `ssh` into).
 
-    Git works by keeping track of your code changes. However, it doesn't know about your code changes until you tell it "hey, make a record of the changes I just made". This is called making a `commit`. When you `commit`, you get an opportunity to put in a simple message about the changes you just made so that you (and others) can quickly understand why you chose to `commit` at this point in your development. It then keeps track of the delta (changes) between each commit. If you ever want to look at what your code (or files--git is not limited to just code!) looked like in the past as you made changes, you can easily go back and check it out. (This is called "checking out a commit", actually.) When you're done working on whatever feature or addition you've been working on, you just `push` your changes up to the server that you're using to host your git repository (this is what [github](https://github.com) is--just a big website that gives you a nice web GUI for your git repositories).
+    Git works by making it easy to keep track of your code changes. You do this by telling Git to make a record of the changes you've made between now and the last time you asked it to do so. This is called making a `commit`. When you `commit`, you get an opportunity to put in a simple message about the changes you just made so that you (and others) can quickly understand why you chose to `commit` at this point in your development. It then keeps track of the delta (changes) between each commit. This helps to keep the record of changes in your Git directory small and lean, and allows Git to work quickly. 
+    
+    When you're done working on whatever feature or addition you've been working on, you just `push` your changes (all of your commits that you've made between now and when you last pushed) up to the server that you're using to host your Git repository (this is what [github](https://github.com) is--just a big website that gives you a nice web GUI for your Git repositories).
 
-    Because you can store your changes in commits, it makes it really easy to work on a single code base with a team of people. If you and someone else (or other people) are all working on the same code base and they want to make changes, it's easy for them to `pull` your changes that you made so they have them locally on their machines too. Now they can work with the changes you made and `push` their own changes back up to the main git repository for you to `pull` down too.
+    If you ever want to look at what your code (or files--Git is not limited to just code!) looked like in the past as you made changes, you can easily go back and check it out. (This is called "checking out a commit", actually.) 
+
+    Because you can store your changes in commits, it makes it really easy to work on a single code base with a team of people. If you and someone else (or other people) are all working on the same code base and they want to make changes, it's easy for them to `pull` your changes that you made so they have them locally on their machines too. Now they can work with the changes you made and `push` their own changes back up to the main Git repository for you to `pull` down too.
 
     If you're ever curious about what changes have been made, you can look at the `log` to see a record of all the `commit`s that have been made and their messages.
 
     Pretty easy, right? :D
 
-    ### Installing git
+    ### Installing Git
 
     ##### Mac
 
@@ -28,7 +34,7 @@
 
     Windows:
 
-    So, to get started, navigate in your command line to your code directory. Then, initialize (init) a new git repo:
+    So, to get started, navigate in your command line to your code directory. Then, initialize (init) a new Git repo:
 
     ```$ git init
     > Initialized empty Git repository in /path/to/your/code/.git/
@@ -49,7 +55,7 @@
     drwxr-xr-x   4 mel  staff  - 136 May 12 10:24 objects/
     drwxr-xr-x   4 mel  staff  - 136 May 12 10:24 refs/```
 
-    When git needs to store any configuration options you may specify, it usually ends up being stored in `.git/config`. These things are pretty unimportant to the beginning git user though, so we're basically just going to ignore the directory and let it do it's thing. 
+    When Git needs to store any configuration options you may specify, it usually ends up being stored in `.git/config`. These things are pretty unimportant to the beginning Git user though, so we're basically just going to ignore the directory and let it do it's thing. 
 
     ###### Resources
 
