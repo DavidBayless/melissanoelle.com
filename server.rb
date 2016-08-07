@@ -17,6 +17,8 @@ get '/events', provides: :html do
   haml :events_speaking
 end
 
+# slides
+
 get '/slides/diversity-in-coding', provides: :html do
   haml :'slides/diversity_in_coding', layout: :slides_layout
 end
@@ -27,6 +29,10 @@ end
 
 get '/slides/command-line-git', provides: :html do
   haml :'slides/command_line_git', layout: :slides_layout
+end
+
+get '/slides/merging-stashing-branching', provides: :html do
+  haml :'slides/merging_stashing_branching', layout: :slides_layout
 end
 
 get '/slides', provides: :html do
@@ -46,4 +52,5 @@ end
 get '/starting-with-git', provides: :html do
   haml :'posts/git_intro'
 end
+
 end

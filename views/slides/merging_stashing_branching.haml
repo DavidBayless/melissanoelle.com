@@ -1,0 +1,47 @@
+%link{rel: 'stylesheet', href: '/stylesheets/beige.css'}
+%section
+  %h1 Merging, Stashing, and (some) Branching
+  %h6 Melissa Noelle
+%section
+  %img{src: '/images/tiny_plants.jpg'}
+%section
+  %img{src: '/images/disorganized_flowers.jpg'}
+%section
+  %h2 Conflict Prevention
+%section
+  %h3 communication
+%section
+  %h3 pull in new code from master often
+%section
+  %h3 git merge vs git rebase
+%section
+  %h2 HECK DANG
+%section
+  %h3 take a look
+  %p ours is on top, theirs is on bottom
+%section
+  %h3 take a better look
+  %code git checkout --conflict=diff3 file
+  %p ours is on top, the base is in the middle, and theirs is on bottom
+%section
+  %h3 --abort is your friend
+%section
+  %h3 communication
+%section 
+  %h2 Stashing
+%section
+  %code git stash save
+%section 
+  %code git stash pop
+%section
+  %code git stash list
+  %code git stash apply stash@{2}
+%section
+  %code git stash apply
+  %code git stash drop
+%section
+  %h3 HECK DANG
+%section
+  %h3 make a new branch
+  %code git stash branch <branchname>
+
