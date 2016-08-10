@@ -31,8 +31,8 @@ get '/slides/command-line-git', provides: :html do
   haml :'slides/command_line_git', layout: :slides_layout
 end
 
-get '/slides/merging-stashing-branching', provides: :html do
-  haml :'slides/merging_stashing_branching', layout: :slides_layout
+get '/slides/merging-stashing', provides: :html do
+  haml :'slides/merging_stashing', layout: :slides_layout
 end
 
 get '/slides', provides: :html do

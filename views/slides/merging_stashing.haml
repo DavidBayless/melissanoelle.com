@@ -1,0 +1,87 @@
+%link{rel: 'stylesheet', href: '/stylesheets/moon.css'}
+%section
+  %h1 Merging, and (some) Stashing
+  %h6 Melissa Noelle
+%section
+  %img{src: '/images/tiny_plants.jpg'}
+%section
+  %img{src: '/images/disorganized_flowers.jpg'}
+%section
+  %h2 Conflict Prevention
+%section
+  %h3 communication
+  %div.fragment
+    %p "Hey, I'm gonna work with this code here... where are you going to be working today?"
+    %p "Oh cool, I'm going to be working with this doing that."
+%section
+  %h3 pull in new code from master often
+  %p  smaller incremental changes &gt; large monumental changes
+%section
+  %h3 git merge vs git rebase
+  %p.fragment  one isn't better than the other, they're just different.
+  %aside.notes
+    %p merge moves your head, rebase rewinds and then replays history (and therefore re-writes it)
+%section
+  %h3 cherrypicking
+  %aside.notes maybe?
+%section
+  %h2 HECK DANG
+  %p conflict you are doin' me a frighten
+  %aside.notes
+    %p I've gone and made a conflict anyway.
+%section
+  %h3 take a look
+  %p ours is on top, theirs is on bottom
+%section
+  %h3 take a better look
+  %code git checkout --conflict=diff3 file
+  %p ours is on top, the base is in the middle, and theirs is on bottom
+%section
+  %h3 --abort is your friend
+%section
+  %h3 communication
+  .fragment
+    %p "Hey, I thought you were working in different code?"
+    %p "Oh man, yeah, but we had to..."
+%section
+  %code.block -Xignore-all-space
+  %code.block -Xignore-space-change
+  %p whitespace conflicts are for suckers
+  %p.fragment problem: leaves some mixed whitespace in the code
+  %aside.notes `-Xignore-all-space` ignores whitespace completely, `Xignore-space-change` only ignores 1:1.
+%section
+  %h3 porcelain vs. plumbing
+  %code.block git ls-files
+  %p for when you want a listing of files based on state
+  %p pipe it through to xargs to make actions on those files, great for merging with known issues (ie: WHITESPACE)
+  %aside.notes Git is really modular, and plumbing is the stuff we don't use because we use "porcelain" commands.
+%section
+  %h3 smudge filter & clean filter
+  %h3 run linter with git hooks?
+%section
+  %code.block git rerere
+  %p because repeating yourself is for n00bs
+  %code.block.fragment git rerere status
+  %code.block.fragment git rerere diff
+%section 
+  %h2 Stashing
+%section
+  %code git stash save
+%section 
+  %code git stash pop
+%section
+  %code.block git stash list
+  %code.block git stash apply stash@{2}
+%section
+  %code.block git stash apply
+  %code.block git stash drop
+%section
+  %h3 HECK DANG
+%section
+  %h3 make a new branch
+  %code git stash branch <branchname>
+%section
+  %img{src: '/images/end_garden.jpg'}
+  %h3 Melissa Noelle
+  %p github.com/melissanoelle
+  %p melissanoelle.com/slides/merging-stashing
