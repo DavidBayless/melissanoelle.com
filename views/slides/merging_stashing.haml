@@ -23,19 +23,42 @@
     %p merge moves your head, rebase rewinds and then replays history (and therefore re-writes it)
 %section
   %h3 cherrypicking
-  %aside.notes maybe?
+  %code.block git cherry-pick
+  %aside.notes Select an interesting commit from another branch and bring that over
 %section
-  %h2 HECK DANG
+  %h1 HECK DANG
   %p conflict you are doin' me a frighten
   %aside.notes
     %p I've gone and made a conflict anyway.
 %section
   %h3 take a look
-  %p ours is on top, theirs is on bottom
+  .smaller.left
+    %code.block Here are lines that are either unchanged from the common
+    %code.block ancestor, or cleanly resolved because only one side changed.
+    %code.block &lt;&lt;&lt;&lt;&lt;&lt;&lt; yours:sample.txt
+    %code.block Conflict resolution is hard;
+    %code.block let's go shopping.
+    %code.block =======
+    %code.block Git makes conflict resolution easy.
+    %code.block &gt;&gt;&gt;&gt;&gt;&gt;&gt; theirs:sample.txt
+    %code.block And here is another line that is cleanly resolved or unmodified.
 %section
   %h3 take a better look
-  %code git checkout --conflict=diff3 file
-  %p ours is on top, the base is in the middle, and theirs is on bottom
+  %code git checkout --conflict=diff3 &lt;filename&gt;
+  .smaller.left
+    %code.block
+      :preserve 
+        Here are lines that are either unchanged from the common
+        ancestor, or cleanly resolved because only one side changed.
+        <<<<<<< yours:sample.txt
+        Conflict resolution is hard;
+        let's go shopping.
+        |||||||
+        Conflict resolution is hard.
+        =======
+        Git makes conflict resolution easy.
+        >>>>>>> theirs:sample.txt
+        And here is another line that is cleanly resolved or unmodified.
 %section
   %h3 --abort is your friend
 %section
@@ -73,13 +96,13 @@
   %code.block git stash list
   %code.block git stash apply stash@{2}
 %section
-  %code.block git stash apply
-  %code.block git stash drop
+  %code.block git stash apply && git stash drop
+  %code.block.fragment git stash pop
 %section
   %h3 HECK DANG
 %section
   %h3 make a new branch
-  %code git stash branch <branchname>
+  %code git stash branch &lt;branchname&gt;
 %section
   %img{src: '/images/end_garden.jpg'}
   %h3 Melissa Noelle
