@@ -2,12 +2,16 @@
 %section
   %h1 Merging, and (some) Stashing
   %h6 Melissa Noelle
+  %aside.notes Who am I? Where do I work? What do I do? What's my experience level?
+  %aside.notes These are ideas to spur conversation and research. No functional examples tonight.
+  %aside.notes "It's easy to think about Git history when we're working by ourselves, right?:"
 %section
   %img{src: '/images/tiny_plants.jpg'}
 %section
   %img{src: '/images/disorganized_flowers.jpg'}
 %section
   %h2 Conflict Prevention
+  %aside.notes "An ounce of prevention is worth a pound of cure."
 %section
   %h3 communication
   %div.fragment
@@ -22,6 +26,7 @@
   %aside.notes
     %p merge moves your head, rebase rewinds and then replays history (and therefore re-writes it)
 %section
+  %aside.notes "While we're mentioning `git rebase`..."
   %h3 cherrypicking
   %code.block git cherry-pick
   %aside.notes Select an interesting commit from another branch and bring that over
@@ -32,7 +37,8 @@
     %p I've gone and made a conflict anyway.
 %section
   %h3 take a look
-  .smaller.left
+  %aside.notes "So, we do a `git status` to see what our affected files are first, and then we open them up in our favorite editor (vim!)."
+  .smaller.left.fragment
     %code.block Here are lines that are either unchanged from the common
     %code.block ancestor, or cleanly resolved because only one side changed.
     %code.block &lt;&lt;&lt;&lt;&lt;&lt;&lt; yours:sample.txt
@@ -45,19 +51,19 @@
 %section
   %h3 take a better look
   %code git checkout --conflict=diff3 &lt;filename&gt;
-  .smaller.left
+  .smaller.left.fragment
     %code.block
       :preserve 
         Here are lines that are either unchanged from the common
         ancestor, or cleanly resolved because only one side changed.
-        <<<<<<< yours:sample.txt
+        &lt;&lt;&lt;&lt;&lt;&lt;&lt; yours:sample.txt
         Conflict resolution is hard;
         let's go shopping.
         |||||||
         Conflict resolution is hard.
         =======
         Git makes conflict resolution easy.
-        >>>>>>> theirs:sample.txt
+        &gt;&gt;&gt;&gt;&gt;&gt;&gt; theirs:sample.txt
         And here is another line that is cleanly resolved or unmodified.
 %section
   %h3 --abort is your friend
@@ -79,9 +85,6 @@
   %p pipe it through to xargs to make actions on those files, great for merging with known issues (ie: WHITESPACE)
   %aside.notes Git is really modular, and plumbing is the stuff we don't use because we use "porcelain" commands.
 %section
-  %h3 smudge filter & clean filter
-  %h3 run linter with git hooks?
-%section
   %code.block git rerere
   %p because repeating yourself is for n00bs
   %code.block.fragment git rerere status
@@ -99,12 +102,15 @@
   %code.block git stash apply && git stash drop
   %code.block.fragment git stash pop
 %section
-  %h3 HECK DANG
+  %h1 HECK DANG
+  %aside.notes "It conflicts with my current working code."
 %section
   %h3 make a new branch
   %code git stash branch &lt;branchname&gt;
 %section
+  %aside.notes "In short, I hope I've given you some tools to make your garden look more like this."
   %img{src: '/images/end_garden.jpg'}
   %h3 Melissa Noelle
   %p github.com/melissanoelle
   %p melissanoelle.com/slides/merging-stashing
+  %aside.notes "The cobbler's children have no shoes."
