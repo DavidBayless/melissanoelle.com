@@ -1,9 +1,29 @@
 code {
   display: inline-block;
   white-space: pre-wrap;
-  &.block {
-    display: block !important;
+}
+
+.top-bar {
+  background: url('/images/background-tile.png');
+  ul {
+    background-color: transparent;
+    a {
+      color: white;
+    }
   }
+  .top-bar-title {
+    color: white;
+    font-size: 1.5em;
+    letter-spacing: 1px;
+  }
+}
+
+.block {
+  display: block !important;
+}
+
+.inline-block {
+  display: inline-block !important;
 }
 
 .smaller {
@@ -13,3 +33,21 @@ code {
 .left {
   text-align: left !important;
 }
+
+.event {
+  img {
+    float: right;
+    max-width: 50%;
+  }
+  .slides {
+    background-color: #40a5e8;
+    border-radius: 5px;
+    color: white;
+    padding: 5px 10px;
+    &:hover {
+      background-color: #84ceff;
+      cursor: pointer; 
+    }
+  }
+}
+
