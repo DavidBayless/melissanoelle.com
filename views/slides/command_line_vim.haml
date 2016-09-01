@@ -1,0 +1,208 @@
+%link{rel: 'stylesheet', href: '/stylesheets/moon.css'}
+:css
+  h1, h2, h3, h4, h5, h6 { text-transform: none !important; }
+%section
+  %h1 ssh & vim
+  %h6 Melissa Noelle
+  %aside.notes Who am I? Where do I work? What do I do? What's my experience level?
+  %aside.notes Be ready to use your terminal--we're going into vim land! 
+  %aside.notes No `ssh` needed for this, just local vim.
+%section
+  %h2 ssh
+  %p "secure shell"
+  %aside.notes We use ssh to get terminal-level access into other computers, usually servers.
+  %aside.notes This is used on Mac and Linux--on Windows you need to do some special setup.
+%section
+  %h2 common ssh commands
+%section
+  %section
+    %h3 man
+    %aside.notes can use `j` to go down, `k` to go up, `q` to quit
+    %aside.notes `man man` for the lulz
+  %section
+    %h3 help
+    %p for built-in commands
+    %aside.notes if `man` doesn't return anything, try `help`!
+  %section 
+    %h3 developers are lazy:
+    %div.left
+      :markdown
+        ```man () {
+          /usr/bin/man $@ || (help $@ 2> /dev/null && help $@ | less)
+        }
+        ```
+    %aside.notes
+      %p Will automatically use `help` if `man` isn't there.
+%section
+  %section
+    %h3 ls
+    %aside.notes list directory contents
+  %section 
+    %h3 ls -la
+    %aside.notes -l display it in list format
+    %aside.notes -a list all directories, even those that begin with a .
+  %section
+    %h3 developers are lazy:
+    %div.left
+      :markdown
+        ```alias ll=ls -la```
+%section
+  %section
+    %h3 cd directory/name
+  %section 
+    %h3 cd -
+    %p Brings you to the directory you were previously in.
+  %section
+    %h3 developers are lazy:
+    %div.left
+      :markdown
+        ```$ brew install bash-it
+        $ bash-it plugin enable z
+        $ cd ...
+        $ z ...
+        ```
+    %aside.notes
+      %p `z` only goes to places you've already been
+      %p uses fuzzy searching
+%section
+  %section
+    %h3 cp
+    %p Copies
+  %section
+    %h3 cp -r
+    %p ("recursive")
+    %aside.notes This is for copying directories.
+%section
+  %section
+    %h3 mv
+    %aside.notes We use this for renaming things.
+%section
+  %section
+    %h3 grep
+    %aside.notes Used for searching.
+  %section
+    %h3 ag
+    %p "the silver searcher"
+    %aside.notes Faster than grep, all the cool kids are doing it.
+%section
+  %section
+    %h3 cat fileName.whatever
+    %p ("concatenate and print files")
+    %aside.notes 
+      %p Directly prints the contents of a file to the command line.
+      %p It'll even print binary type files! :O
+  %section
+    %h3 touch fileName.foo
+    %aside.notes Creates an empty file 
+%section
+  %section
+    %h3 
+      \ |
+    %p (this is the "pipe" character)
+    %aside.notes The pipe character lets us pipe the output from one command as the input to the next command.
+  %section
+    %h3 ps aux | grep "search"
+  %section
+    %h3 git log | grep "search"
+%section
+  %section
+    %h3 &gt;
+    %p (this is the "no fucking clue" character)
+    %aside.notes This takes something from the left and puts it into the thing on the right
+  %section
+    %h3 cat file.txt &gt; pbcopy
+    %aside.notes Puts the contents of a file into your clipboard for pasting.
+%section
+  %section
+    %h1 vim
+    %p.fragment some things to keep in mind...
+    %aside.notes
+      %p this is really a hard thing to learn
+      %p the gains are so good though
+  %section
+    %h2 vim is hard
+    %p.fragment it's ok AND NORMAL to have a steep learning curve
+    %aside.notes
+      %p certainly a skill to have though
+  %section
+    %h2 capitalization is important
+  %section
+    %h2 there are different "modes"
+    %p command, insert, visual, last line
+    %p.fragment if you're lost, you can get back to command mode with &lt;Esc&gt;
+    %aside.notes
+      %p the modes do diferent things, if you can't do something you know you should be able to do, you might be in the wrong mode?
+      %p Once you get back to command mode, try again!
+  %section
+    %h2 this talk goes past "intro"
+    %p.fragment because we don't deserve to get stuck in the "intro" rut
+    %aside.notes
+      %p This is not the audience for your soapbox Mel. Doooon't do it to these poor people.
+  %section
+    %h2 I'll talk for a few slides before prompting you to use your computers
+    %p Just hang in there? Please maybe?
+  %section
+    %h2 you might not learn everything I present to you tonight
+    %p.fragment memorizing things is hard
+    %p.fragment that's ok because you'll have the link to these slides
+    %aside.notes
+      %p I just want to expose everyone to concepts that I think really rock while challenging people already at an intro level/the people who just pick it up
+%section
+  %h2 vim basics
+%section
+  %section
+    %h3 moving around
+    %p there are so many ways
+  %section
+    %h4 moving the cursor
+    %p.fragment h, j, k, l
+    %p.fragment (&9664;, &9660;, &9650;, &9654;)
+    .fragment
+      %p yes you can use arrow keys. sometimes.
+      %a{href="http://vim-adventures.com/"} vim-adventures
+    %aside.notes
+      %p vim-adventures is a great browser game to learn to navigate vim
+      %p if you've ever played nethack in the command line, you know how to move
+  %section
+    %h4 moving to a specific line
+    %p.fragment 18gg
+    %p.fragment :18
+    .fragment
+      %p go to the top: gg
+      %p go to the bottom: G
+%section
+  %section
+    %h4 typing stuff
+    %p getting into insert mode
+  %section
+    %h4 start typing at the cursor
+    %code.block i
+    %p start typing!
+    %aside.notes As always, &lt;Esc&gt; will bring us back to command mode
+  %section
+    %h4 start typing on a new line
+    .fragment
+      %code.block o
+      %p insert at the line below the cursor
+    .fragment
+      %code.block O
+      %p insert at the line above the cursor
+  %section
+    %h4 start typing in relation to the current line
+    .fragment
+      %code.block I
+      %p start typing at the text-beginning of the current line
+    .fragment
+      %code.block A
+      %p start typing at the end of the current line
+%section
+  %h3 computer time!
+  .fragment
+    %code.block git clone https://github.com/melissanoelle/melissanoelle.com
+    %code.block cd melissanoelle.com/view/slides/
+    %code.block vim command_line_vim.haml
+  %p things to play with:
+  %ul
+    %li moving around (h, j, k, l)
+    %li inserting (i, o, O, I, A)
+    %li getting back to command mode with &lt;Esc&gt;

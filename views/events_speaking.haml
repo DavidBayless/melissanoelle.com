@@ -1,10 +1,13 @@
 %h1 Events & Speaking
 
 - events = []
-- events.push({ title: 'Merging and Stashing', event: 'Phoenix Version Control Meetup', datetime: DateTime.parse('August 10, 2016 18:30+07:00'), picture: 'phx_version_control_merge_stash.png', description: 'Just a quick talk about different tools that are available to help with conflicts using Git in the command line.', link: 'https://www.meetup.com/phoenix-version-control/events/232581000/', slides: 'merging-stashing'}) 
+- events.push({ title: 'ssh & vim: the important stuff', event: 'Girl Develop It', datetime: DateTime.parse('September 15, 2016 18:30+07:00'), description: 'An intermediate-level talk about navigating the command line and editing files using the Best Editor (vim).'})
+
+- pastEvents = []
+- pastEvents.push({ title: 'Merging and Stashing', event: 'Phoenix Version Control Meetup', datetime: DateTime.parse('August 10, 2016 18:30+07:00'), picture: 'phx_version_control_merge_stash.png', description: 'Just a quick talk about different tools that are available to help with conflicts using Git in the command line.', link: 'https://www.meetup.com/phoenix-version-control/events/232581000/', slides: 'merging-stashing'}) 
 
 %h2.centered-title Past Events
-- events.each do |event|
+- pastEvents.each do |event|
   .event
     %img{src: "images/" + event[:picture]}
     %h3= event[:title]

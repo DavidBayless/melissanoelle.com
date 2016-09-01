@@ -44,6 +44,10 @@ get '/slides/git-best-practices', provides: :html do
   haml :'slides/git_best', layout: :slides_layout
 end
 
+get '/slides/ssh-vim', provides: :html do
+  haml :'slides/command_line_vim', layout: :slides_layout
+end
+
 get '/slides', provides: :html do
   haml :slides
 end
