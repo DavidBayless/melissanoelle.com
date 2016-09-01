@@ -53,4 +53,8 @@ get '/starting-with-git', provides: :html do
   haml :'posts/git_intro'
 end
 
+get '/women-in-tech', provides: :html do
+  haml :'posts/women_in_tech'
+end
+
 end
