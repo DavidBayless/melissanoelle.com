@@ -8,4 +8,10 @@
       .slides
         =yield
     %script{src: '/javascripts/reveal.js'}
-    %script Reveal.initialize();
+    :javascript
+      Reveal.initialize({
+        history: true
+        dependencies: [
+          { src: "plugins/notes/notes.js", async: true }
+        ]
+      });
