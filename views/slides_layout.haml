@@ -7,11 +7,12 @@
     .reveal
       .slides
         =yield
+    %script{src: 'https://cdnjs.cloudflare.com/ajax/libs/headjs/0.96/head.min.js'}
     %script{src: '/javascripts/reveal.js'}
     :javascript
       Reveal.initialize({
-        history: true
+        history: true,
         dependencies: [
-          { src: "plugins/notes/notes.js", async: true }
+          { src: "/javascripts/notes/notes.js", async: true }
         ]
       });

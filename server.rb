@@ -17,6 +17,11 @@ get '/events', provides: :html do
   haml :events_speaking
 end
 
+# slides speaker notes
+get '/javascripts/notes/notes.html', provides: :html do
+  send_file 'public/javascripts/notes/notes.html'
+end
+
 # slides
 
 get '/slides/diversity-in-coding', provides: :html do
