@@ -40,6 +40,10 @@ get '/slides/merging-stashing', provides: :html do
   haml :'slides/merging_stashing', layout: :slides_layout
 end
 
+get '/slides/git-best-practices', provides: :html do
+  haml :'slides/git_best', layout: :slides_layout
+end
+
 get '/slides', provides: :html do
   haml :slides
 end

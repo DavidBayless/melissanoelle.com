@@ -1,0 +1,190 @@
+%link{rel: 'stylesheet', href: '/stylesheets/moon.css'}
+:css
+  h1, h2, h3, h4, h5, h6 { text-transform: none !important; }
+%section
+  %h1 git best practices
+  %h6 Melissa Noelle
+%section
+  %section
+    %h2 git duet mn fn
+    .fragment
+      %code.block gd mn fn
+    %aside.notes git duet rotates authorship with your pair
+    %aside.notes install with `brew tap git-duet/tap && brew install git-duet`
+  %section
+    %h3 vim ~/.git-authors
+    .left.fragment
+      %code.block
+        :preserve
+          authors:
+           jd: Jane Doe; jane
+           fb: Frances Bar
+          email:
+            domain: awesometown.local
+  %section
+    %h3 git duet-commit
+    %code.block gdc
+    .smaller.left.fragment
+      %code.block
+        :preserve
+          git show --format=full
+          commit ce7856371e3e3a6d05f1b66af96f086df071e783
+          Author: Jane Doe <jane@awesometown.local>
+          Commit: Frances Bar <f.bar@awesometown.local>
+
+              initial commit
+
+              Signed-off-by: Frances Bar <f.bar@awesometown.local>
+
+          diff --git a/foo b/foo
+          new file mode 100644
+          index 0000000..e69de29
+%section
+  %section
+    %h2 git add -p
+    %p ("patch")
+    .fragment
+      %code.block gapa
+  %section
+    .smaller.left
+      %code.block
+        :preserve
+          diff --git a/views/slides_layout.haml b/views/slides_layout.haml
+          index 62d773a..b2d535a 100644
+          --- a/views/slides_layout.haml
+          +++ b/views/slides_layout.haml
+          @@ -7,10 +7,11 @@
+               .reveal
+                 .slides
+                   =yield
+          +    %script{src: 'head.min.js'}
+               %script{src: '/javascripts/reveal.js'}
+               :javascript
+                 Reveal.initialize({
+          -        history: true
+          +        history: true,
+                   dependencies: [
+                     { src: 'plugins/notes/notes.js', async: true }
+                   ]
+          Stage this hunk [y,n,q,a,d,/,s,e,?]? y 
+      %aside.notes
+        %p this will be colored if you have colors turned on for git
+        %p if you only stage some hunks from a file and not all, the file shows up in both your staged and unstaged changes list
+%section
+  %section
+    %h2 garbage
+    .smaller.left.fragment
+      %code.block
+        :preserve
+          console.log('wtf')
+          console.warn('lulz')
+
+          debugger
+
+          // TODO
+          // is this right??
+
+          /* 
+            let deadCode = Immutable.fromJS({
+              comment: 'is unused', 
+              use: 'git history instead'
+            })
+          */
+  %section
+    %h3 don't commit garbage
+    %p.fragment delete it
+    %p.fragment put it on a branch
+    %aside.notes gapa helps with this!
+%section
+  %section
+    %h2 commit messages
+    %ul
+      %li less than 50 chars
+      %li capitalize first lett
+      %li no period at the end
+      %li use the imperative mood
+    %a.block.fragment{href: 'http://chris.beams.io/posts/git-commit/'} http://chris.beams.io/posts/git-commit/
+  %section
+    %h3 tracker integration
+    %p [#1234567890] and [finishes #1234567890]
+    .left.fragment
+      %code.block
+        :preserve
+          Change request form input to match mockup
+
+          [finishes #148573059]
+    %aside.notes 
+      %p goes in the body of the commit, not the subject line
+%section
+  %h2 if you branch:
+  %h3 name your branch well
+  .left.fragment
+    %code.block
+      :preserve
+        git checkout -b mn/tests_refactor
+        git checkout -b story/short_story_name
+%section
+  %section
+    %h2 stashing
+    %aside.notes
+      %p what is stashing?
+      %p takes your working changes and stashes them under the rug (but also in a nice list)
+  %section
+    %h3 git stash apply
+    %h3 ...
+    %h3 git stash drop
+    .fragment
+      %p is better than:
+      %code.block
+        git stash pop
+      %aside.notes
+        %p because if you need to try again, pop has already dropped it from your history 
+        %p merge conflicts are scary
+  %section
+    %h3 git stash list
+    .smaller.left.fragment
+      %code.block
+        :preserve
+          stash@{0}: WIP on master: 049d078 added the index file
+          stash@{1}: WIP on master: c264051 Revert "added file_size"
+          stash@{2}: WIP on master: 21d80a5 added number to log
+  %section
+    %h3 danger alert:
+    .smaller.left
+      %code.block
+        :preserve
+          error: Your local changes to the following files would be overwritten by merge: Please, commit your changes or stash them before you can merge.
+    .fragment
+      %h1 dooon't do it
+      %h1 dooon't stash
+  %section
+    %h2 commit first, then pull
+    %h3 never pull into a dirty tree
+%section
+  %section
+    %h2 rebase vs merge
+    %aside.notes
+      %p default is to merge
+      %p rebase is really nice
+      %p we prefer merge here because it doesn't rewrite history
+  %section
+    %h3 git rebase -i
+    %p ("interactive")
+    %aside.notes
+      %p lets you choose commits and squash commits
+  %section
+    %h3 if you branch
+    .left
+      %code.block
+        :preserve
+          git rebase -i master
+          git checkout master
+          git merge branch-name
+          git branch -D branch-name
+    %aside.notes
+      %p should add a new commit to your history saying you merged in a branch
+      %p should just fast-forward master at that point (if you rebase)
+      %p reduces merge conflicts
+      %p clean up your branches!
+%section
+  %h2 questions?
