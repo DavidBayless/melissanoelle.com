@@ -1,0 +1,222 @@
+%link{rel: 'stylesheet', href: '/stylesheets/moon.css'}
+:css
+  h1, h2, h3, h4, h5, h6 { text-transform: none !important; }
+%section
+  %h1 vim
+  %h6 Melissa Noelle
+%section
+  %section
+    %h2 thinking in vim
+  %section
+    %h3 modes
+    %p command, insert, visual, last line
+    %aside.notes You generally always want to be in command mode
+  %section
+    %h3 lots of plugins
+%section
+  %section
+    %h2 some quick things first:
+  %section
+    %h2 getting started
+    %code.block.left $ vim [filename]
+  %section
+    %h3 saving/quitting
+    %code.block.left :w
+    %code.block.left :wq
+    %aside.notes (from command mode, of course)
+  %section
+    %h3 capitalization is important
+%section
+  %section
+    %h3 moving around
+    %p there are so many ways
+  %section
+    %h4 moving the cursor
+    %p.fragment h, j, k, l
+    %p.fragment (&#9664;, &#9660;, &#9650;, &#9654;)
+    .fragment
+      %p yes you can use arrow keys most times, but not all times
+      %p http://vim-adventures.com/
+    %aside.notes
+      %p vim-adventures is a great browser game to learn to navigate vim
+      %p if you've ever played nethack in the command line, you know how to move
+  %section
+    %h4 moving to a specific line
+    %p.fragment 18gg
+    %p.fragment :18
+    .fragment
+      %p go to the top: gg
+      %p go to the bottom: G
+  %section
+    %h4 moving by words
+    .fragment
+      %code.block w
+      %p goes forward one word
+    .fragment
+      %code.block b
+      %p goes back by one word
+%section
+  %section
+    %h4 typing stuff
+    %p getting into insert mode
+  %section
+    %h4 start typing at the cursor
+    %code.block i
+    %p start typing!
+    %aside.notes As always, &lt;Esc&gt; will bring us back to command mode
+  %section
+    %h4 start typing on a new line
+    .fragment
+      %code.block o
+      %p insert at the line below the cursor
+    .fragment
+      %code.block O
+      %p insert at the line above the cursor
+  %section
+    %h4 start typing in relation to the current line
+    .fragment
+      %code.block I
+      %p start typing at the text-beginning of the current line
+    .fragment
+      %code.block A
+      %p start typing at the end of the current line
+  %section
+    %h4 jump to...
+    .fragment
+      %code.block $
+      %p the end of the line
+    .fragment
+      %code.block ^
+      %p the beginning of the line
+    %p.fragment (Yes, you're right! This is just like RegEx!)
+    %aside.notes Do not talk about regex, do not tell your regex joke Mel.
+%section
+  %section
+    %h3 changing text quickly
+    %p (this is the good ish)
+  %section
+    %h4 change a single word
+    .fragment
+      %code.block cw
+      %p (this is literally "change word")
+  %section
+    %h4 change many words
+    .fragment
+      %code.block c#w
+      %p (replace the # with an actual number though)
+  %section
+    %h4 change to the end of the line
+    .fragment
+      %code.block c$
+      %p (this is literally "change to end of line")
+    %aside.notes Notice how we're combining commands now?
+  %section
+    %h4 change inside of something
+    .fragment
+      %code.block ci'
+      %p (change inside ' and ')
+      %p ex: foo foo 'fuzz' foo
+    .fragment
+      %code.block ci"
+      %p (change inside " and ")
+    .fragment
+      %code.block cit
+      .fragment
+        %p (change inside &lt;tag&gt; and &lt;/tag&gt;)
+        %p (the / isn't important btw)
+  %section
+    %h4 do something until a specific character
+    .fragment
+      %code.block dt&lt;character&gt;
+      %code.block ct&lt;character&gt;
+      %p goes forward
+    .fragment
+      %code.block dT&lt;character&gt;
+      %code.block cT&lt;character&gt;
+      %p goes backwards
+  %section
+    %h4 replace a single character
+    .fragment
+      %code.block r&lt;replacement character&gt;
+  %section
+    %h4 now, replace the 'c' with 'd' and they work for deleting! Wow!
+    %code.block dw, d#w, d$, di', di", dit
+  %section
+    %h4 change case
+    %code.block.fragment ~
+%section
+  %section
+    %h3 copying things for pasting
+  %section
+    %h4 WARNING
+    %p when you delete things in vim, it automatically gets put into your vim paste buffer
+    %p this means if you enable vim to change your clipboard, it'll overwrite what you've copied
+    %p sorry? not sorry. it's actually kind of cool.
+    %code.block.fragment dd &lt;movement&gt; p
+    %p.fragment boom. you're welcome.
+  %section
+    %h4 this is just like c and d from before, but with:
+    %code.block y
+    %p.fragment ("yank")
+  %section
+    %h4 so we get:
+    %code.block yw, y#w, yi', yi", yit
+    %p ("yank word", "yank this many words", "yank inside these '", "yank inside these "", "yank inside this tag")
+  %section
+    %h4 visual select mode
+    .fragment
+      %code.block V 
+      %p visually select by line
+    .fragment
+      %code.block v
+      %p visually select by character
+    .fragment
+      %code.block ctrl+v
+      %p visually select in a block
+    %p.fragment we can move around while in this mode just like usual too.
+    %p.fragment try yanking things while in this mode!
+  %section
+    %h4 paste it
+    .fragment
+      %code.block p
+      %p pastes after the cursor
+    .fragment
+      %code.block P
+      %p pastes under the cursor
+  %section
+    %h4 once we're in visual select mode, we can...
+    .fragment
+      %code.block y
+      %p (copy it)
+    .fragment
+      %code.block x
+      %p (delete it)
+    .fragment
+      %code.block &gt;
+      %p indent it
+    .fragment
+      %code.block &lt;
+      %p un-indent it
+%section
+  %section
+    %h3 last line mode
+    %p for saving and quitting
+    %p.fragment (and other things, like help and stuff)
+    %code.block.fragment :
+  %section
+    %h4 save
+    .fragment
+      %code.block :w
+      %p "write"
+  %section
+    %h4 quit
+    .fragment
+      %code.block :q
+  %section
+    %h4 write and quit
+    .fragment
+      %code.block :wq
+%section
+  %h1 THE END?
+  %p.fragment spoilers: you're never done learning more vim
+

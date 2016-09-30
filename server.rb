@@ -48,6 +48,10 @@ get '/slides/ssh-vim', provides: :html do
   haml :'slides/command_line_vim', layout: :slides_layout
 end
 
+get '/slides/vim', provides: :html do
+  haml :'slides/vim', layout: :slides_layout
+end
+
 get '/slides', provides: :html do
   haml :slides
 end
